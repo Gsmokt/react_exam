@@ -11,8 +11,12 @@ class ProductsList extends Component{
     this.props.setProductList(b)
   }
   render(){
-    const products = [...this.props.products];
-    const productsList = products.map((e,i) => <li key={i} onClick={()=>this.handleClick(i)} >{e.nazwa}</li>)
+    const getUniqueProduct = (() => {
+      const products = this.props.products.map(item => item.nazwa);
+      const uniqueProducts = [...new Set(products)];
+      return uniqueProducts;
+    })();
+    const productsList = getUniqueProduct.map((e,i) => <li key={i} onClick={()=>this.handleClick(i)} >{e}</li>)
   return (
         <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>
