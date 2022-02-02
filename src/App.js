@@ -8,12 +8,12 @@ import styles from './App.module.scss';
 import produkty from './common/consts/produkty';
 
 function App() {
-  const [addList, setAddList] = useState(produkty)
+  const [addList, setAddList] = useState(produkty);
   const [product, setProduct] = useState(produkty);
   const [products, setProducts] = useState([]);
   
   const setList = (value) => {
-    setProducts([...products, ...value])
+    setProducts([...products, ...value]);
   }
   // const setNewList = (index) => {
   //   const productsList = [...addList];
@@ -43,8 +43,8 @@ function App() {
     setProduct(filterProduct);
   }
   const addProducts = (value) => {
-      setProduct([...product, value])
-      setAddList([...produkty, value])
+      setProduct([...product, value]);
+      setAddList([...produkty, value]);
       
       
   }

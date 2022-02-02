@@ -7,13 +7,13 @@ function AddProducts(props) {
     const [category, setCategory] = useState('');
     const [product, setProduct] = useState(false);
     const handleName = (e) => {
-        setName(e.target.value)
+        setName(e.target.value);
     }
     const handleCategory = (e) => {
-        setCategory(e.target.value)
+        setCategory(e.target.value);
     }
     const handleProduct = (e) => {
-        setProduct(e.target.checked)
+        setProduct(e.target.checked);
     }
     const handleClick = () => {
         const prod =  

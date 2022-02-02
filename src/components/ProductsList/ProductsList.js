@@ -7,8 +7,8 @@ import commonColumnsStyles from "../../common/styles/Columns.module.scss";
 class ProductsList extends Component{
 
   handleClick = (i) => {
-    const b = this.props.products.slice(i,i+1);
-    this.props.setProductList(b)
+    const item = this.props.products.slice(i,i+1);
+    this.props.setProductList(item);
   }
   render(){
     const getUniqueProduct = (() => {
