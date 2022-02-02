@@ -11,12 +11,12 @@ class ProductsList extends Component{
     this.props.setProductList(b)
   }
   render(){
-    const c = [...this.props.products];
-    const a = c.map((e,i) => <li key={i} onClick={()=>this.handleClick(i)} >{e.nazwa}</li>)
+    const products = [...this.props.products];
+    const productsList = products.map((e,i) => <li key={i} onClick={()=>this.handleClick(i)} >{e.nazwa}</li>)
   return (
         <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>
-        {a}
+        {productsList}
       </header>
     </div>
   );

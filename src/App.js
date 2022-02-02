@@ -1,5 +1,5 @@
 
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import ProductsList from './components/ProductsList/ProductsList';
 import ShopingList from './components/ShopingList/ShopingList';
 import AddProducts from './components/AddProducts/AddProducts';
@@ -11,18 +11,18 @@ function App() {
   const [addList, setAddList] = useState(produkty)
   const [product, setProduct] = useState(produkty);
   const [products, setProducts] = useState([]);
-  const [prod, setProd] = useState(null);
+  
   const setList = (value) => {
     setProducts([...products, ...value])
   }
-  const setNewList = (index) => {
-    const productsList = [...addList];
-    const removeFromProductsList = productsList.splice(index,1);
-    setProduct(productsList);
-  }
+  // const setNewList = (index) => {
+  //   const productsList = [...addList];
+  //   const removeFromProductsList = productsList.splice(index,1);
+  //   setProduct(productsList);
+  // }
   const filtetList = (value) => {
     const productsList = [...addList];
-    const filterProduct = productsList.filter(item => item.nazwa.includes(value));
+    const filterProduct = productsList.filter(item => item.nazwa.includes(value.toLowerCase()));
     setProduct(filterProduct);
   }
   const filterList = (value) => {
@@ -37,7 +37,7 @@ function App() {
       filterProduct = productsList.filter(item => item.produktSpozywczy === true);
     }
     if(value === true){
-      filterProduct = productsList.filter(item => item === item);
+      filterProduct = productsList.filter(item => item);
     }
     
     setProduct(filterProduct);
@@ -54,7 +54,7 @@ function App() {
       <ProductsFilters products={addList} fil={fil} filterList={filterList} filtetList={filtetList}/>
       <div className={styles.columnsWrapper}>
         <ProductsList products={product} setProductList={setList}/>
-        <ShopingList setNewProductList={setNewList} shopList={products}/>
+        <ShopingList /*setNewProductList={setNewList}*/ shopList={products}/>
       </div>
     </ div>
   );

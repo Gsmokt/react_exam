@@ -14,7 +14,7 @@ function ProductsFilters(props) {
         setOnlyProduct(e.target.checked);
         props.fil(onlyProduct);
     }
-    const valued = props.products.map(item => item.nazwa);
+    
     return (
         <div className={styles.Wrapper}>
             <input type="text"  onChange={handleChange}/>

@@ -3,7 +3,6 @@ import { useState } from 'react/cjs/react.development';
 import styles from '../../common/styles/Headers.module.scss';
 
 function AddProducts(props) {
-    const [add, setAdd] = useState([]);
     const [name, setName] = useState('');
     const [category, setCategory] = useState('');
     const [product, setProduct] = useState(false);
@@ -18,12 +17,10 @@ function AddProducts(props) {
     }
     const handleClick = () => {
         const prod =  
-            {nazwa: name,
-            kategoria: category,
-            produktSpozywczy: product}
-            ;
-          props.addProducts(prod);
-          console.log()
+            {nazwa: name.toLowerCase(),
+            kategoria: category.toLowerCase(),
+            produktSpozywczy: product};
+            props.addProducts(prod);
     }
     return (
         <div className={styles.Wrapper}>
