@@ -14,14 +14,18 @@ function ProductsFilters(props) {
         setOnlyProduct(e.target.checked);
         props.fil(onlyProduct);
     }
-    
+    const getUniqueCategory = (() => {
+      const products = props.products.map(item => item.kategoria);
+      const uniqueProducts = [...new Set(products)];
+      return uniqueProducts;
+    })()
     return (
         <div className={styles.Wrapper}>
             <input type="text"  onChange={handleChange}/>
             
             <select onChange={handleSelect}>
                     <option key={'all'} value={''}>All types</option>
-                    {props.products.map((item) => <option key={item.nazwa} value={item.kategoria}>{item.kategoria}</option>)}
+                    {getUniqueCategory.map((item) => <option key={item} value={item}>{item}</option>)}
             </select>
             <input value={onlyProduct} onChange={handleValueChange} type="checkbox"/>Tylko produkty spożywcze
          
