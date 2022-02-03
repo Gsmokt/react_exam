@@ -17,7 +17,6 @@ class ProductsFilters extends Component{
     }
     handleValueChange = e => {
       this.setState({ onlyProduct: e.target.checked }, () => this.filterProducts());
-        // props.fil(onlyProduct);
     }
     filterProducts = () => {
       const {products} = this.props;
