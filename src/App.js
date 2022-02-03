@@ -21,26 +21,7 @@ function App() {
   //   setProduct(productsList);  item.nazwa.includes(value.toLowerCase())
   // }
   const filtetList = (value) => {
-    const productsList = [...addList];
-    const filterProduct = productsList.filter(item =>  item.nazwa.includes(value.toLowerCase()));
-    setProduct(filterProduct);
-  }
-  const filterList = (value) => {
-    const productsList = [...addList];
-    const filterProduct = productsList.filter(item => item.kategoria.includes(value));
-    setProduct(filterProduct);
-  }
-  const fil = (value) => {
-    const productsList = [...addList];
-    let filterProduct;
-    if(value === false){
-      filterProduct = productsList.filter(item => item.produktSpozywczy === true);
-    }
-    if(value === true){
-      filterProduct = productsList.filter(item => item);
-    }
-    
-    setProduct(filterProduct);
+    setProduct([...value]);
   }
   const addProducts = (value) => {
       setProduct(oldProduct => [...oldProduct,value]);
@@ -49,7 +30,7 @@ function App() {
   return (
     <div className={styles.appWrapper}>
       <AddProducts products={product} addProducts={addProducts}/>
-      <ProductsFilters products={addList} fil={fil} filterList={filterList} filtetList={filtetList}/>
+      <ProductsFilters products={addList} filtetList={filtetList}/>
       <div className={styles.columnsWrapper}>
         <ProductsList products={product} setProductList={setList}/>
         <ShopingList /*setNewProductList={setNewList}*/ shopList={products}/>

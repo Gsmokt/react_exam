@@ -1,36 +1,58 @@
 import React from 'react';
-import { useState } from 'react/cjs/react.development';
+import { Component} from 'react/cjs/react.development';
 import styles from '../../common/styles/Headers.module.scss';
 
-function ProductsFilters(props) {
-    const [onlyProduct, setOnlyProduct] = useState(false);
-    const handleChange = (e) => {
-      props.filtetList(e.target.value);
+class ProductsFilters extends Component{
+  state = {
+    onlyProduct: false,
+    name:'',
+    category:''
+  }
+   
+    handleChange = (e) => {
+      this.setState({ name: e.target.value }, () => this.filterProducts());
     }
-    const handleSelect = (e) => {
-      props.filterList(e.target.value);
+    handleSelect = (e) => {
+      this.setState({ category: e.target.value }, () => this.filterProducts());
     }
-    const handleValueChange = e => {
-        setOnlyProduct(e.target.checked);
-        props.fil(onlyProduct);
+    handleValueChange = e => {
+      this.setState({ onlyProduct: e.target.checked }, () => this.filterProducts());
+        // props.fil(onlyProduct);
     }
+    filterProducts = () => {
+      const {products} = this.props;
+      const {onlyProduct, name, category} = this.state;
+      let filterProduct = products.filter(item =>  item.nazwa.includes(name.toLowerCase()));
+      filterProduct = filterProduct.filter(item => item.kategoria.includes(category));
+      if(onlyProduct === true){
+        filterProduct = filterProduct.filter(item => item.produktSpozywczy === true);
+      }
+      if(onlyProduct === false){
+        filterProduct = filterProduct.filter(item => item);
+      }
+      this.props.filtetList(filterProduct)
+    }
+    render(){
     const getUniqueCategory = (() => {
-      const products = props.products.map(item => item.kategoria);
+      const products = this.props.products.map(item => item.kategoria);
       const uniqueProducts = [...new Set(products)];
       return uniqueProducts;
     })()
-    return (
+   return (
         <div className={styles.Wrapper}>
-           <label>Nazwa produktu  <input type="text"  onChange={handleChange}/></label> 
+           <label>Nazwa produktu  <input type="text"  onChange={this.handleChange}/></label> 
             
-            <select onChange={handleSelect}>
+            <select onChange={this.handleSelect}>
                     <option key={'all'} value={''}>All types</option>
                     {getUniqueCategory.map((item) => <option key={item} value={item}>{item}</option>)}
             </select>
-            <input value={onlyProduct} onChange={handleValueChange} type="checkbox"/>Tylko produkty spożywcze
+            <input value={this.onlyProduct} onChange={this.handleValueChange} type="checkbox"/>Tylko produkty spożywcze
          
         </div>
       );
+      
+    }
+ 
   };
 
   export default ProductsFilters;
