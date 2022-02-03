@@ -1,6 +1,7 @@
 * {
   list-style-type: none;
   text-align: center;
+  cursor: pointer;
 }
 
 input {
