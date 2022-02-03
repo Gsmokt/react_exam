@@ -27,8 +27,8 @@ function AddProducts(props) {
     }
     return (
         <div className={styles.Wrapper}>
-               <input value={name} type="text" onChange={handleName}/>Nazwa produktu 
-               <input value={category} onChange={handleCategory} type="text"/>Nowa kategoria 
+             <label>Nazwa produktu <input value={name} type="text" onChange={handleName}/></label>   
+            <label>Katagoria  <input value={category} onChange={handleCategory} type="text"/></label>   
                <input value={product} onChange={handleProduct} type="checkbox"/>Produkt spożywczy
             <button onClick={handleClick}>Dodaj</button>
         </div>
