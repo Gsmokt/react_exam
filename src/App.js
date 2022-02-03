@@ -18,11 +18,11 @@ function App() {
   // const setNewList = (index) => {
   //   const productsList = [...addList];
   //   const removeFromProductsList = productsList.splice(index,1);
-  //   setProduct(productsList);
+  //   setProduct(productsList);  item.nazwa.includes(value.toLowerCase())
   // }
   const filtetList = (value) => {
     const productsList = [...addList];
-    const filterProduct = productsList.filter(item => item.nazwa.includes(value.toLowerCase()));
+    const filterProduct = productsList.filter(item =>  item.nazwa.includes(value.toLowerCase()));
     setProduct(filterProduct);
   }
   const filterList = (value) => {
