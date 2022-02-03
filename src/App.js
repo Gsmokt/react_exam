@@ -43,14 +43,12 @@ function App() {
     setProduct(filterProduct);
   }
   const addProducts = (value) => {
-      setProduct([...product, value]);
-      setAddList([...produkty, value]);
-      
-      
+      setProduct(oldProduct => [...oldProduct,value]);
+      setAddList(oldProduct => [...oldProduct,value]);  
   }
   return (
     <div className={styles.appWrapper}>
-      <AddProducts addProducts={addProducts}/>
+      <AddProducts products={product} addProducts={addProducts}/>
       <ProductsFilters products={addList} fil={fil} filterList={filterList} filtetList={filtetList}/>
       <div className={styles.columnsWrapper}>
         <ProductsList products={product} setProductList={setList}/>

@@ -16,11 +16,14 @@ function AddProducts(props) {
         setProduct(e.target.checked);
     }
     const handleClick = () => {
-        const prod =  
-            {nazwa: name.toLowerCase(),
-            kategoria: category.toLowerCase(),
-            produktSpozywczy: product};
-            props.addProducts(prod);
+        const products = props.products.map(item => item.nazwa);
+        if(products.includes(name.toLowerCase())) return;
+        else
+            props.addProducts(
+                   {nazwa: name.toLowerCase(),
+                    kategoria: category.toLowerCase(),
+                    produktSpozywczy: product}
+            );
     }
     return (
         <div className={styles.Wrapper}>

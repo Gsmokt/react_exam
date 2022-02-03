@@ -7,16 +7,14 @@ import commonColumnsStyles from "../../common/styles/Columns.module.scss";
 class ProductsList extends Component{
 
   handleClick = (i) => {
-    const item = this.props.products.slice(i,i+1);
-    this.props.setProductList(item);
-  }
+    const b = this.props.products.slice(i,i+1);
+    this.props.setProductList(b)
+  
+  }    
+
   render(){
-    const getUniqueProduct = (() => {
-      const products = this.props.products.map(item => item.nazwa);
-      const uniqueProducts = [...new Set(products)];
-      return uniqueProducts;
-    })();
-    const productsList = getUniqueProduct.map((e,i) => <li key={i} onClick={()=>this.handleClick(i)} >{e}</li>)
+    const productsList = this.props.products.map((e,i) => <li key={e.nazwa} onClick={()=>this.handleClick(i)} >{e.nazwa}</li>)
+   
   return (
         <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>
