@@ -30,7 +30,7 @@ function AddProducts(props) {
              <label>Nazwa produktu <input value={name} type="text" onChange={handleName}/></label>   
             <label>Katagoria  <input value={category} onChange={handleCategory} type="text"/></label>   
                <input value={product} onChange={handleProduct} type="checkbox"/>Produkt spożywczy
-            <button onClick={handleClick}>Dodaj</button>
+            <button onClick={handleClick}>Dodaj nowy produkt</button>
         </div>
       );
   };

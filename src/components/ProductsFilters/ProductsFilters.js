@@ -21,7 +21,7 @@ function ProductsFilters(props) {
     })()
     return (
         <div className={styles.Wrapper}>
-            <input type="text"  onChange={handleChange}/>
+           <label>Nazwa produktu  <input type="text"  onChange={handleChange}/></label> 
             
             <select onChange={handleSelect}>
                     <option key={'all'} value={''}>All types</option>
