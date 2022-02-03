@@ -1,19 +1,17 @@
 
-import React, {Component} from "react";
+import React from "react";
 
 import commonColumnsStyles from "../../common/styles/Columns.module.scss";
 
 
-class ProductsList extends Component{
+function ProductsList(props){
 
-  handleClick = (i) => {
-    const b = this.props.products.slice(i,i+1);
-    this.props.setProductList(b)
+  const handleClick = (i) => {
+    const b = props.products.slice(i,i+1);
+    props.setProductList(b)
   
-  }    
-
-  render(){
-    const productsList = this.props.products.map((e,i) => <li key={e.nazwa} onClick={()=>this.handleClick(i)} >{e.nazwa}</li>)
+  }  
+  const productsList = props.products.map((e,i) => <li key={e.nazwa} onClick={()=>handleClick(i)} >{e.nazwa}</li>)
    
   return (
         <div className={commonColumnsStyles.App}>
@@ -22,7 +20,6 @@ class ProductsList extends Component{
       </header>
     </div>
   );
-  }
 
 }
 
