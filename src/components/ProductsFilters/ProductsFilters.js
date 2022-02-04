@@ -10,13 +10,13 @@ class ProductsFilters extends Component{
   }
    
     handleChange = (e) => {
-      this.setState({ name: e.target.value }, () => this.filterProducts());
+      this.setState({ name: e.target.value }, () => this.filterProducts()); //Zadanie 2 - bez () => this.filterProducts()
     }
     handleSelect = (e) => {
-      this.setState({ category: e.target.value }, () => this.filterProducts());
+      this.setState({ category: e.target.value }, () => this.filterProducts());  //Zadanie 2 - bez () => this.filterProducts()
     }
     handleValueChange = e => {
-      this.setState({ onlyProduct: e.target.checked }, () => this.filterProducts());
+      this.setState({ onlyProduct: e.target.checked }, () => this.filterProducts());  //Zadanie 2 - bez () => this.filterProducts()
     }
     filterProducts = () => {
       const {products} = this.props;
@@ -46,7 +46,7 @@ class ProductsFilters extends Component{
                     {getUniqueCategory.map((item) => <option key={item} value={item}>{item}</option>)}
             </select>
             <input value={this.onlyProduct} onChange={this.handleValueChange} type="checkbox"/>Tylko produkty spożywcze
-         
+           { /* <button onClick={this.filterProducts}>Wyszukaj</button> - do zadania 2 */}
         </div>
       );
       

@@ -20,7 +20,7 @@ function ShopingList(props) {
   }
   return (
     <div className={commonColumnsStyles.App}>
-      <header className={commonColumnsStyles.AppHeader}>
+      <header className={commonColumnsStyles.AppHeader}>                
         {shopList.map((e,i) => <li key={i} onClick={()=>handleClick(i)} onContextMenu={(event)=>setShopping(event,i)}>{e.nazwa}</li>)}
       </header>
     </div>
