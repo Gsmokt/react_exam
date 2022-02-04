@@ -21,7 +21,7 @@ class ProductsFilters extends Component{
     filterProducts = () => {
       const {products} = this.props;
       const {onlyProduct, name, category} = this.state;
-      let filterProduct = products.filter(item =>  item.nazwa.includes(name.toLowerCase()));
+      let filterProduct = products.filter(item =>  item.nazwa.includes(name.toLowerCase())); //Zadanie 2 - bez toLowerCase()
       filterProduct = filterProduct.filter(item => item.kategoria.includes(category));
       if(onlyProduct === true){
         filterProduct = filterProduct.filter(item => item.produktSpozywczy === true);

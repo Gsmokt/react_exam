@@ -22,7 +22,7 @@ function ShopingList(props) {
     <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>                
         {shopList.map((e,i) => <li key={i} onClick={()=>handleClick(i)} onContextMenu={(event)=>setShopping(event,i)}>{e.nazwa}</li>)}
-      </header>
+      </header>                                     {/* Zadanie 2 - funkcja handleClick  zamiast setShopping na onContextMenu*/}
     </div>
   );
 }
