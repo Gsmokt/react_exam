@@ -17,11 +17,11 @@ function AddProducts(props) {
     }
     const handleClick = () => {
         const products = props.products.map(item => item.nazwa);
-        if(products.includes(name.toLowerCase())) return;  //Zadanie 2 - bez toLowerCase()
+        if(products.includes(name.toLowerCase())) return;  
         else
             props.addProducts(
                    {nazwa: name.toLowerCase(),
-                    kategoria: category.toLowerCase(),  //Zadanie 2 - bez toLowerCase()
+                    kategoria: category.toLowerCase(),  
                     produktSpozywczy: product}
             );
     }
