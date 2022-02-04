@@ -7,8 +7,8 @@ import commonColumnsStyles from "../../common/styles/Columns.module.scss";
 function ProductsList(props){
 
   const handleClick = (i) => {
-    const b = props.products.slice(i,i+1);
-    props.setProductList(b)
+    const item = props.products.slice(i,i+1);
+    props.setProductList(item)
   
   }  
   const productsList = props.products.map((e,i) => <li key={e.nazwa} onClick={()=>handleClick(i)} >{e.nazwa}</li>)
