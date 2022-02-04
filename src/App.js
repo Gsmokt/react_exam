@@ -15,11 +15,9 @@ function App() {
   const setList = (value) => {
     setProducts([...products, ...value]);
   }
-  // const setNewList = (index) => {
-  //   const productsList = [...addList];
-  //   const removeFromProductsList = productsList.splice(index,1);
-  //   setProduct(productsList);  item.nazwa.includes(value.toLowerCase())
-  // }
+  const setNewList = (value) => {
+    setProducts([...value]);
+  }
   const filtetList = (value) => {
     setProduct([...value]);
   }
@@ -33,7 +31,7 @@ function App() {
       <ProductsFilters products={addList} filtetList={filtetList}/>
       <div className={styles.columnsWrapper}>
         <ProductsList products={product} setProductList={setList}/>
-        <ShopingList /*setNewProductList={setNewList}*/ shopList={products}/>
+        <ShopingList setNewProductList={setNewList} shopList={products}/>
       </div>
     </ div>
   );
