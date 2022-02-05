@@ -8,7 +8,7 @@ function ProductsList(props){
 
   const handleClick = (i) => {
     const item = props.products.slice(i,i+1);
-    props.setProductList(item)
+    props.setProductList(item);
   
   }  
   const productsList = props.products.map((e,i) => <li key={e.nazwa} onClick={()=>handleClick(i)} >{e.nazwa}</li>)

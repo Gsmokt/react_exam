@@ -15,6 +15,9 @@ function App() {
   const setList = (value) => {
     setProducts([...products, ...value]);
   }
+  const setNewList = (value) => {
+    setProducts([...value]);
+  }
   const filtetList = (value) => {
     setProduct([...value]);
   }
@@ -28,7 +31,7 @@ function App() {
       <ProductsFilters products={addList} filtetList={filtetList}/>
       <div className={styles.columnsWrapper}>
         <ProductsList products={product} setProductList={setList}/>
-        <ShopingList setNewProductList={setProducts} shopList={products}/>
+        <ShopingList setNewProductList={setNewList} shopList={products}/>
       </div>
     </ div>
   );
