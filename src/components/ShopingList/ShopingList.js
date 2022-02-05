@@ -12,11 +12,8 @@ function ShopingList(props) {
     }
   }
   const handleClick = (i) => {
-    const list = [...shopList];
-    const setList = list.filter((item,index) => {
-      if(index !== i) return item;
-    } );
-    props.setNewProductList(setList);
+    const setList = shopList.filter((item,index) => index !== i);
+    props.setNewProductList([...setList]);
   }
   return (
     <div className={commonColumnsStyles.App}>
