@@ -12,15 +12,6 @@ function App() {
   const [product, setProduct] = useState(produkty);
   const [products, setProducts] = useState([]);
   
-  const setList = (value) => {
-    setProducts([...products, ...value]);
-  }
-  const setNewList = (value) => {
-    setProducts([...value]);
-  }
-  const filtetList = (value) => {
-    setProduct([...value]);
-  }
   const addProducts = (value) => {
       setProduct(oldProduct => [...oldProduct,value]);
       setAddList(oldProduct => [...oldProduct,value]);  
@@ -28,10 +19,10 @@ function App() {
   return (
     <div className={styles.appWrapper}>
       <AddProducts products={product} addProducts={addProducts}/>
-      <ProductsFilters products={addList} filtetList={filtetList}/>
+      <ProductsFilters products={addList} filtetList={setProduct}/>
       <div className={styles.columnsWrapper}>
-        <ProductsList products={product} setProductList={setList}/>
-        <ShopingList setNewProductList={setNewList} shopList={products}/>
+        <ProductsList products={product} setProductList={setProducts}/>
+        <ShopingList setNewProductList={setProducts} shopList={products}/>
       </div>
     </ div>
   );

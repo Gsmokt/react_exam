@@ -29,7 +29,7 @@ class ProductsFilters extends Component{
       if(onlyProduct === false){
         filterProduct = filterProduct.filter(item => item);
       }
-      this.props.filtetList(filterProduct);
+      this.props.filtetList([...filterProduct]);
     }
     render(){
     const getUniqueCategory = (() => {
