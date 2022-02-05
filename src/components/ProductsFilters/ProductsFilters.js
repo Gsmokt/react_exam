@@ -29,14 +29,14 @@ class ProductsFilters extends Component{
       if(onlyProduct === false){
         filterProduct = filterProduct.filter(item => item);
       }
-      this.props.filtetList(filterProduct)
+      this.props.filtetList(filterProduct);
     }
     render(){
     const getUniqueCategory = (() => {
       const products = this.props.products.map(item => item.kategoria);
       const uniqueProducts = [...new Set(products)];
       return uniqueProducts;
-    })()
+    })();
    return (
         <div className={styles.Wrapper}>
            <label>Nazwa produktu  <input type="text"  onChange={this.handleChange}/></label> 
