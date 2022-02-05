@@ -13,8 +13,8 @@ function App() {
   const [products, setProducts] = useState([]);
   
   const addProducts = (value) => {
-      setProduct(oldProduct => [...oldProduct,value]);
-      setAddList(oldProduct => [...oldProduct,value]);  
+      setProduct(oldProduct => [value, ...oldProduct]);
+      setAddList(oldProduct => [value, ...oldProduct]);  
   }
   return (
     <div className={styles.appWrapper}>

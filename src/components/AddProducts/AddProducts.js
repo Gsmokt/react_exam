@@ -6,6 +6,9 @@ function AddProducts(props) {
     const [name, setName] = useState('');
     const [category, setCategory] = useState('');
     const [product, setProduct] = useState(false);
+    const [invalidName, setInvalidName] = useState(false);
+    const [invalidCategory, setInvalidCategory] = useState(false);
+
     const handleName = (e) => {
         setName(e.target.value);
     }
@@ -17,18 +20,25 @@ function AddProducts(props) {
     }
     const handleClick = () => {
         const products = props.products.map(item => item.nazwa);
-        if(products.includes(name.toLowerCase())) return;  
-        else
-            props.addProducts(
+        if(products.includes(name.toLowerCase()) || name === '') {setInvalidName(true); return}
+        else if(category === '') {setInvalidCategory(true); return}
+        else {
+                props.addProducts(
                    {nazwa: name.toLowerCase(),
                     kategoria: category.toLowerCase(),  
                     produktSpozywczy: product}
-            );
+                    );
+                setName('');
+                setCategory('');
+                setProduct(false);
+                setInvalidName(false);
+                setInvalidCategory(false);
+            }
     }
     return (
         <div className={styles.Wrapper}>
-             <label>Nazwa produktu <input value={name} type="text" onChange={handleName}/></label>   
-            <label>Katagoria  <input value={category} onChange={handleCategory} type="text"/></label>   
+             <label>Nazwa produktu <input style={{border: invalidName ? '3px solid red': null}} value={name} type="text" onChange={handleName}/></label>  
+            <label>Katagoria  <input style={{border: invalidCategory ? '3px solid red': null}} value={category} onChange={handleCategory} type="text"/></label>   
                <input value={product} onChange={handleProduct} type="checkbox"/>Produkt spożywczy
             <button onClick={handleClick}>Dodaj nowy produkt</button>
         </div>

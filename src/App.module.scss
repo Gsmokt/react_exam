@@ -16,6 +16,9 @@ button{
 button:hover{
   transform: scale(1.1);
 }
+button:active{
+  transform: scale(0.9);
+}
 .appWrapper {
   display: flex;
   flex-direction: column;
