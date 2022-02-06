@@ -16,6 +16,7 @@ function ProductsList(props){
   return (
         <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>
+        <p>Lista produktów: </p>
         {productsList}
       </header>
     </div>
