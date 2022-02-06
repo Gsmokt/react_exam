@@ -29,9 +29,9 @@ class ProductsFilters extends Component{
       )();
    return (
         <div className={styles.Wrapper}>
-           <label>Nazwa produktu  <input name='name' type="text"  onChange={this.handleChange}/></label> 
+           <label>Nazwa produktu  <input autocomplete="off" name='name' type="text" value={this.name}  onChange={this.handleChange}/></label> 
             
-            <select name='category' onChange={this.handleChange}>
+            <select name='category' value={this.category} onChange={this.handleChange}>
                     <option key={'all'} value={''}>All types</option>
                     {getUniqueCategory.map((item) => <option key={item} value={item}>{item}</option>)}
             </select>

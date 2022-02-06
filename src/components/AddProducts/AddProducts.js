@@ -40,8 +40,8 @@ function AddProducts(props) {
         };
     return (
         <div className={styles.Wrapper}>
-             <label>Nazwa produktu <input style={{border: invalidName ? '3px solid red': null}} value={name} type="text" onChange={handleName}/></label>  
-            <label>Katagoria  <input style={{border: invalidCategory ? '3px solid red': null}} value={category} onChange={handleCategory} type="text"/></label>   
+             <label>Nazwa produktu <input autocomplete="off" style={{border: invalidName ? '3px solid red': null}} value={name} type="text" onChange={handleName}/></label>  
+            <label>Katagoria  <input autocomplete="off" style={{border: invalidCategory ? '3px solid red': null}} value={category} onChange={handleCategory} type="text"/></label>   
                <input value={product} onChange={handleProduct} type="checkbox"/>Produkt spożywczy
             <button onClick={handleClick}>Dodaj nowy produkt</button>
         </div>
