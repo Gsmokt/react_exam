@@ -18,7 +18,7 @@ function App() {
   }
   return (
     <div className={styles.appWrapper}>
-      <AddProducts products={product} addProducts={addProducts}/>
+      <AddProducts allProducts={addList} products={product} addProducts={addProducts}/>
       <ProductsFilters products={addList} filtetList={setProduct}/>
       <div className={styles.columnsWrapper}>
         <ProductsList products={product} setProductList={setProducts}/>

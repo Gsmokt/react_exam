@@ -11,15 +11,22 @@ function AddProducts(props) {
 
     const handleName = (e) => {
         setName(e.target.value);
-    }
+    };
     const handleCategory = (e) => {
         setCategory(e.target.value);
-    }
+    };
     const handleProduct = (e) => {
         setProduct(e.target.checked);
-    }
+    };
+    const resetState = () => {
+        setName('');
+        setCategory('');
+        setProduct(false);
+        setInvalidName(false);
+        setInvalidCategory(false);
+    };
     const handleClick = () => {
-        const products = props.products.map(item => item.nazwa);
+        const products = props.allProducts.map(item => item.nazwa);
         if(products.includes(name.toLowerCase()) || name === '') {setInvalidName(true); return}
         else if(category === '') {setInvalidCategory(true); return}
         else {
@@ -28,13 +35,9 @@ function AddProducts(props) {
                     kategoria: category.toLowerCase(),  
                     produktSpozywczy: product}
                     );
-                setName('');
-                setCategory('');
-                setProduct(false);
-                setInvalidName(false);
-                setInvalidCategory(false);
-            }
-    }
+                if(props.addProducts) resetState();
+            };
+        };
     return (
         <div className={styles.Wrapper}>
              <label>Nazwa produktu <input style={{border: invalidName ? '3px solid red': null}} value={name} type="text" onChange={handleName}/></label>  
