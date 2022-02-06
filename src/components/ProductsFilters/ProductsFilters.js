@@ -21,22 +21,14 @@ class ProductsFilters extends Component{
     filterProducts = () => {
       const {products} = this.props;
       const {onlyProduct, name, category} = this.state;
-      let filterProduct = products.filter(item =>  item.nazwa.includes(name.toLowerCase())); //Zadanie 2 - bez toLowerCase()
-      filterProduct = filterProduct.filter(item => item.kategoria.includes(category));
-      if(onlyProduct === true){
-        filterProduct = filterProduct.filter(item => item.produktSpozywczy === true);
-      }
-      if(onlyProduct === false){
-        filterProduct = filterProduct.filter(item => item);
-      }
+      let filterProduct = products.filter(item =>  item.nazwa.includes(name.toLowerCase()))
+                                  .filter(item => item.kategoria.includes(category));                  //Zadanie 2 - bez toLowerCase()
+      filterProduct = onlyProduct ? filterProduct.filter(item => item.produktSpozywczy === true): filterProduct;
       this.props.filtetList([...filterProduct]);
     }
     render(){
-    const getUniqueCategory = (() => {
-      const products = this.props.products.map(item => item.kategoria);
-      const uniqueProducts = [...new Set(products)];
-      return uniqueProducts;
-    })();
+      const getUniqueCategory = (() => [...new Set(this.props.products.map(item => item.kategoria))]
+      )();
    return (
         <div className={styles.Wrapper}>
            <label>Nazwa produktu  <input type="text"  onChange={this.handleChange}/></label> 

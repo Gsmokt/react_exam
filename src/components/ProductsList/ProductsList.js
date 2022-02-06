@@ -6,12 +6,8 @@ import commonColumnsStyles from "../../common/styles/Columns.module.scss";
 
 function ProductsList(props){
 
-  const handleClick = (i) => {
-    const item = props.products.slice(i,i+1);
-    props.setProductList(prevState => [...prevState, ...item]);
-  
-  }  
-  const productsList = props.products.map((e,i) => <li key={e.nazwa} onClick={()=>handleClick(i)} >{e.nazwa}</li>)
+  const productsList = props.products.map((e,i) => <li key={e.nazwa} 
+  onClick={()=> props.setProductList(prevState => [...prevState, ...props.products.slice(i,i+1)])} >{e.nazwa}</li>)
    
   return (
         <div className={commonColumnsStyles.App}>
