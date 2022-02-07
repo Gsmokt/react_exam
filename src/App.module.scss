@@ -28,3 +28,7 @@ button:active{
   display: flex;
   height: calc(100vh - 100px);
 }
+li:hover{
+  color: rgb(255, 72, 0);
+  transform: scale(1.1);
+}

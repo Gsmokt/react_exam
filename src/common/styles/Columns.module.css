@@ -1,5 +1,3 @@
-$color-red: red;
-
 .App {
   text-align: center;
   display: flex;
@@ -21,7 +19,7 @@ $color-red: red;
   background-color: #282c34;
   height: calc(100vh - 100px);
   font-size: calc(10px + 2vmin);
-  color: $color-red;
+  color: red;
   width: 100%;
 }
 
