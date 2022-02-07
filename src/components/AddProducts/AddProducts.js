@@ -7,8 +7,7 @@ function AddProducts(props) {
     name: '',
     category: '',
     product: false,
-    invalidName: false,
-    invalidCategory: false
+    invalidName: false  
  })
 
     const handleChange = (e) => {
@@ -19,34 +18,36 @@ function AddProducts(props) {
     };
     const handleClick = () => {
         const products = props.allProducts.map(item => item.nazwa);
-        if(products.includes(add.name.toLowerCase() || add.name === '')) {setAdd({...add,invalidName:true}); return}
-        else if(add.category === '') {setAdd({...add,invalidCategory: true}); return}
+        if(products.includes(add.name.toLowerCase()) || add.name === '' || add.category === '') {setAdd({...add,invalidName:true}); return} 
         else {
                 props.addProducts(
                    {nazwa: add.name.toLowerCase(),
                     kategoria: add.category.toLowerCase(),  
                     produktSpozywczy: add.product}
                     );
-                if(props.addProducts) setAdd({name: '', category: '', product: false, invalidName: false, invalidCategory: false});
+                if(props.addProducts) setAdd({name: '', category: '', product: false, invalidName: false});
             };
         };
     return (
         <div className={styles.Wrapper}>
-             <label>Nazwa produktu <input name='name' 
-                                          autocomplete="off" 
-                                          style={{border: add.invalidName ? '3px solid red': null}} 
+             <label>Nazwa produktu <input name='name'
+                                          style={{border: add.invalidName ? '3px solid red': null}}
+                                          placeholder='Nazwa nowego produktu...' 
+                                          autocomplete="off"  
                                           value={add.name} type="text" 
                                           onChange={handleChange}/></label>  
-            <label>Katagoria  <input name='category' 
+            <label>Katagoria  <input name='category'
+                                     style={{border: add.invalidName ? '3px solid red': null}} 
+                                     placeholder='Nazwa kategorii...'
                                      autocomplete="off" 
-                                     style={{border: add.invalidCategory ? '3px solid red': null}} 
                                      value={add.category} 
                                      onChange={handleChange} type="text"/></label>   
                <input name='product' 
                       value={add.product} 
                       onChange={handleChange} 
                       type="checkbox"/>Produkt spożywczy
-            <button onClick={handleClick}>Dodaj nowy produkt</button>
+            <button onClick={handleClick}>{add.invalidName ? 'Wpisz nazwę produktu lub katagorię' : 'Dodaj nowy produkt'}</button>
+           
         </div>
       );
   };
