@@ -29,19 +29,24 @@ class ProductsFilters extends Component{
       )();
    return (
         <div className={styles.Wrapper}>
-           <label>Nazwa produktu  <input autocomplete="off" name='name' type="text" value={this.name}  onChange={this.handleChange}/></label> 
+           <label>Nazwa produktu  <input autocomplete="off" 
+                                         name='name' 
+                                         type="text" 
+                                         value={this.name}  
+                                         onChange={this.handleChange}/></label> 
             
             <select name='category' value={this.category} onChange={this.handleChange}>
                     <option key={'all'} value={''}>All types</option>
                     {getUniqueCategory.map((item) => <option key={item} value={item}>{item}</option>)}
             </select>
-            <input name='onlyProduct' value={this.onlyProduct} onChange={this.handleChange} type="checkbox"/>Tylko produkty spożywcze
+            <input name='onlyProduct' 
+                   value={this.onlyProduct} 
+                   onChange={this.handleChange} 
+                   type="checkbox"/>Tylko produkty spożywcze
            { /* <button onClick={this.filterProducts}>Wyszukaj</button> - do zadania 2 */}
         </div>
       );
-      
-    }
- 
-  };
+    };
+ };
 
   export default ProductsFilters;
