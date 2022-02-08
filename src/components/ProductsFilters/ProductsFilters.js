@@ -8,13 +8,21 @@ class ProductsFilters extends Component{
     name:'',
     category:''
   }
-   
+ 
     handleChange = (e) => {
       const name = e.target.name;
       if(e.target.type === 'checkbox')
       this.setState({ [name]: e.target.checked }, () => this.filterProducts()); //Zadanie 2 - bez () => this.filterProducts()
       else 
       this.setState({ [name]: e.target.value }, () => this.filterProducts());
+    }    
+    handleReset = () => {
+      this.setState({
+        onlyProduct: false,
+        name:'',
+        category:'',
+      },
+      ()=>this.filterProducts())
     }
     filterProducts = () => {
       const {products} = this.props;
@@ -24,6 +32,7 @@ class ProductsFilters extends Component{
       filterProduct = onlyProduct ? filterProduct.filter(item => item.produktSpozywczy === true): filterProduct;
       this.props.filtetList([...filterProduct]);
     }
+
     render(){
       const getUniqueCategory = (() => [...new Set(this.props.products.map(item => item.kategoria))]
       )();
@@ -32,18 +41,19 @@ class ProductsFilters extends Component{
            <label>Nazwa produktu  <input autocomplete="off" 
                                          name='name' 
                                          type="text" 
-                                         value={this.name}  
+                                         value={this.state.name}  
                                          onChange={this.handleChange}/></label> 
             
-            <select name='category' value={this.category} onChange={this.handleChange}>
+            <select name='category' value={this.state.category} onChange={this.handleChange}>
                     <option key={'all'} value={''}>All types</option>
                     {getUniqueCategory.map((item) => <option key={item} value={item}>{item}</option>)}
             </select>
             <input name='onlyProduct' 
-                   value={this.onlyProduct} 
+                   checked={this.state.onlyProduct} 
                    onChange={this.handleChange} 
                    type="checkbox"/>Tylko produkty spożywcze
            { /* <button onClick={this.filterProducts}>Wyszukaj</button> - do zadania 2 */}
+           <button onClick={this.handleReset}>Wyczyść filtry</button>
         </div>
       );
     };
