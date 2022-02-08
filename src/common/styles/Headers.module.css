@@ -30,3 +30,21 @@
 .im {
   transform: translate(78px, -5px);
 }
+
+.label::after {
+  position: absolute;
+  display: block;
+  content: "Dodaj produkt:";
+  font-size: 22px;
+  left: 10px;
+  top: 32px;
+}
+
+.label1::after {
+  position: absolute;
+  display: block;
+  content: "Wyszukaj produkt:";
+  font-size: 22px;
+  left: 10px;
+  top: 32px;
+}

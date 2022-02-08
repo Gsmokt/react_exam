@@ -38,7 +38,7 @@ class ProductsFilters extends Component{
       )();
    return (
         <div className={styles.Wrapper}>
-           <label>Nazwa produktu  <input 
+           <label className={styles.label1}>Nazwa produktu  <input 
                                          placeholder='Nazwa produktu...'
                                          autocomplete="off" 
                                          name='name' 
