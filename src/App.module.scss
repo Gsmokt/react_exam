@@ -16,9 +16,11 @@ button{
 }
 button:hover{
   transform: scale(1.1);
+  border-color:#7a7a7a;
 }
 button:active{
   transform: scale(0.9);
+  background-color:#999999;
 }
 .appWrapper {
   display: flex;
@@ -30,8 +32,4 @@ button:active{
   display: flex;
   height: calc(100vh - 100px);
   border: 3px solid white;
-}
-li:hover{
-  color: rgb(255, 72, 0);
-  transform: scale(1.1);
 }

@@ -32,7 +32,7 @@ function AddProducts(props) {
             };
         };
     return (
-        <>
+        
         <div className={styles.Wrapper}>
              <label className={styles.label}>Nazwa produktu <input name='name'
                                           style={{border: add.invalidName ? '3px solid red': null}}
@@ -54,7 +54,7 @@ function AddProducts(props) {
             <div className={styles.add}>{add.invalidName || add.invalidCategory ?  'Sprawdź, czy wypełniłeś wszystkie pola!' : null}
             </div>
            </div>
-           </>
+           
       );
   };
 

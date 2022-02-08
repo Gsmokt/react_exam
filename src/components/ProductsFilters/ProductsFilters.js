@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component} from 'react/cjs/react.development';
 import styles from '../../common/styles/Headers.module.scss';
-
+import log from '../../shopping-cart-check.png'
 class ProductsFilters extends Component{
   state = {
     onlyProduct: false,
@@ -54,6 +54,7 @@ class ProductsFilters extends Component{
                    type="checkbox"/>Tylko produkty spożywcze
            { /* <button onClick={this.filterProducts}>Wyszukaj</button> - do zadania 2 */}
            <button onClick={this.handleReset}>Wyczyść filtry</button>
+           <img alt='Nie udało się wyświetlić' src={log}/><p className={styles.text}>{this.props.shopList.length}</p>
         </div>
       );
     };

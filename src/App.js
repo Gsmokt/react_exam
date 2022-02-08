@@ -19,7 +19,7 @@ function App() {
   return (
     <div className={styles.appWrapper}>
       <AddProducts allProducts={addList} products={product} addProducts={addProducts}/>
-      <ProductsFilters products={addList} filtetList={setProduct}/>
+      <ProductsFilters shopList={products} products={addList} filtetList={setProduct}/>
       <div className={styles.columnsWrapper}>
         <ProductsList products={product} setProductList={setProducts}/>
         <ShopingList setNewProductList={setProducts} shopList={products}/>

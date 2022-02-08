@@ -1,1 +1,1 @@
-.Wrapper{height:100px;width:100%;display:flex;align-items:center;justify-content:center;border:3px solid white}.add{display:block;width:6vw;height:100px;transform:translate(60%, 30%);color:red}
+.Wrapper{height:100px;width:100%;display:flex;align-items:center;justify-content:center;position:relative}.add{display:block;width:6vw;height:100px;transform:translate(60%, 30%);color:red}.text{position:absolute;top:2vh;left:86.5vw}.Wrapper img{transform:translate(220px, 0px)}
