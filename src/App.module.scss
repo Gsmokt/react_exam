@@ -3,6 +3,7 @@
   text-align: center;
   cursor: pointer;
 }
+
 input{
   margin: 0 10px 0 10px;
   text-align: left;
@@ -22,11 +23,13 @@ button:active{
 .appWrapper {
   display: flex;
   flex-direction: column;
+  border: 3px solid white;
 }
 
 .columnsWrapper {
   display: flex;
   height: calc(100vh - 100px);
+  border: 3px solid white;
 }
 li:hover{
   color: rgb(255, 72, 0);

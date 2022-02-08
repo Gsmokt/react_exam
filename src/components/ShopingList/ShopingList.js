@@ -1,6 +1,6 @@
 import React from "react";
 import commonColumnsStyles from "../../common/styles/Columns.module.scss";
-
+import log from '../../shopping-cart-check.png'
 function ShopingList(props) {
   const {shopList} = props;
   const setShopping = (event,i) => {
@@ -14,7 +14,7 @@ function ShopingList(props) {
   return (
     <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>
-        <p>Lista zakupów: </p>               
+        <p>Lista zakupów: </p> <img src={log}/> <p className={commonColumnsStyles.text}>{shopList.length}</p>           
         {shopList.map((e,i) => <li key={i} 
                                    onClick={()=> props.setNewProductList([...shopList.filter((item,index) => index !== i)]) } 
                                    onContextMenu={(event)=>setShopping(event,i)}>{e.nazwa}</li>)}

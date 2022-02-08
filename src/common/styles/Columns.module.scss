@@ -23,8 +23,17 @@ $color-red: red;
   font-size: calc(10px + 2vmin);
   color: $color-red;
   width: 100%;
+  border: 3px solid white;
+  position: relative;
 }
-
+.text{
+  position: absolute;
+  top: 2px;
+  left: 495px;
+}
+.AppHeader img{
+  transform: translate(130px,-60px);
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
