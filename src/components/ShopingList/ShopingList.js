@@ -15,7 +15,9 @@ function ShopingList(props) {
     <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>
         <p>Lista zakupów: </p> <img src={log}/> <p className={commonColumnsStyles.text}>{shopList.length}</p>           
-        {shopList.map((e,i) => <li key={i} 
+        {shopList.map((e,i) => <li 
+                                   className={commonColumnsStyles.list1}
+                                   key={i} 
                                    onClick={()=> props.setNewProductList([...shopList.filter((item,index) => index !== i)]) } 
                                    onContextMenu={(event)=>setShopping(event,i)}>{e.nazwa}</li>)}
       </header>                                     {/* Zadanie 1 - funkcja handleClick  zamiast setShopping na onContextMenu*/}

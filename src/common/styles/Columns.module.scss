@@ -26,6 +26,7 @@ $color-red: red;
   border: 3px solid white;
   position: relative;
 }
+
 .text{
   position: absolute;
   top: 2px;
@@ -42,3 +43,28 @@ $color-red: red;
     transform: rotate(360deg);
   }
 }
+.list:hover{
+  color: rgb(255, 72, 0);
+  transform: scale(1.1);
+  position: relative;
+}
+li:hover::after{
+ display: block;
+ position: absolute;
+ content: url('../../shopping-cart-check (1).png');
+ left: 540px;
+ top: -15px;
+}
+.list1:hover{
+    color: rgb(255, 72, 0);
+    transform: scale(1.1);
+    position: relative;
+  
+}
+.list1:hover::after{
+  display: block;
+  position: absolute;
+  content: url('../../broom (1).png');
+  left: 540px;
+  top: -15px;
+ }
