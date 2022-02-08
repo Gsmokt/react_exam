@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    color: #999999;
 }
 .add{
     display: block;
@@ -16,7 +17,8 @@
 .text{
     position: absolute;
     top: 2vh;
-    left: 86.5vw;
+    left: 87.2vw;
+    font-weight: bold;
   }
   .imm{
     transform: translate(220px,0px);
