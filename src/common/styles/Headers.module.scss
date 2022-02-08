@@ -7,6 +7,14 @@
     position: relative;
     color: #999999;
 }
+.Wrapper::after{
+    display: block;
+    position: absolute;
+    content: "";
+    width: 95vw;
+    border-top: 2px solid #999999;
+    top: -.9vh;
+}
 .add{
     display: block;
     width: 6vw;
@@ -21,25 +29,27 @@
     font-weight: bold;
   }
   .imm{
-    transform: translate(220px,0px);
+    transform: translate(14.5vw,0vh);
 }
 .im{
-    transform: translate(78px,-5px);
+    transform: translate(5vw,-2vh);
 }
 .label::after{
     position: absolute;
     display: block;
     content: "Dodaj produkt:";
     font-size: 22px;
-    left: 10px;
-    top: 32px;
+    left: 1vw;
+    top: 3.7vh;
 }
 .label1::after{
     position: absolute;
     display: block;
     content: "Wyszukaj produkt:";
     font-size: 22px;
-    left: 10px;
-    top: 32px;
+    left: 1vw;
+    top: 3.2vh;
 }
-
+.er{
+    transform: translateY(-5vh)
+}

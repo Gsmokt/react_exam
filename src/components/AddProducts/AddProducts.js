@@ -53,7 +53,7 @@ function AddProducts(props) {
                       onChange={handleChange} 
                       type="checkbox"/>Produkt spożywczy
             <button onClick={handleClick}>Dodaj nowy produkt</button>
-            <div className={styles.add}>{add.invalidName || add.invalidCategory ?  'Sprawdź, czy wypełniłeś wszystkie pola!' : null}
+            <div className={styles.add}>{add.invalidName || add.invalidCategory ?  <p className={styles.er}>Sprawdź, czy wypełniłeś wszystkie pola!</p> : null}
                                         {add.img ? <img className={styles.im} alt='Brak obrazka' src={logo} /> :null}   
             </div>
            </div>
