@@ -21,6 +21,10 @@
   left: 86.5vw;
 }
 
-.Wrapper img {
+.imm {
   transform: translate(220px, 0px);
+}
+
+.im {
+  transform: translate(78px, -5px);
 }

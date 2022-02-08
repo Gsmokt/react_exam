@@ -56,7 +56,7 @@ class ProductsFilters extends Component{
                    type="checkbox"/>Tylko produkty spożywcze
            { /* <button onClick={this.filterProducts}>Wyszukaj</button> - do zadania 2 */}
            <button onClick={this.handleReset}>Wyczyść filtry</button>
-           <img alt='Nie udało się wyświetlić' src={log}/><p className={styles.text}>{this.props.shopList.length}</p>
+           <img className={styles.imm} alt='Nie udało się wyświetlić' src={log}/><p className={styles.text}>{this.props.shopList.length}</p>
         </div>
       );
     };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react/cjs/react.development';
 import styles from '../../common/styles/Headers.module.scss';
+import logo from '../../thumbs-up (1).png'
 
 function AddProducts(props) {
  const [add, setAdd] = useState({
@@ -8,7 +9,8 @@ function AddProducts(props) {
     category: '',
     product: false,
     invalidName: false,
-    invalidCategory: false  
+    invalidCategory: false,
+    img: false  
  })
 
     const handleChange = (e) => {
@@ -19,16 +21,16 @@ function AddProducts(props) {
     };
     const handleClick = () => {
         const products = props.allProducts.map(item => item.nazwa);
-        if(add.name === '') {setAdd({...add,invalidName:true}); return}
-        if(add.category === '') {setAdd({...add, invalidCategory:true});return}
-        if(products.includes(add.name.toLowerCase())) alert('Podany produkt już istnieje')
+        if(add.name === '') {setAdd({...add,invalidName:true, img: false}); return}
+        if(add.category === '') {setAdd({...add, invalidCategory:true, img:false});return}
+        if(products.includes(add.name.toLowerCase())) {setAdd({...add, img:false}); alert('Podany produkt już istnieje')}
         else {
                 props.addProducts(
                    {nazwa: add.name.toLowerCase(),
                     kategoria: add.category.toLowerCase(),  
                     produktSpozywczy: add.product}
                     );
-                if(props.addProducts) setAdd({name: '', category: '', product: false, invalidName: false});
+                if(props.addProducts) setAdd({name: '', category: '', product: false, invalidName: false, img: true});
             };
         };
     return (
@@ -51,7 +53,8 @@ function AddProducts(props) {
                       onChange={handleChange} 
                       type="checkbox"/>Produkt spożywczy
             <button onClick={handleClick}>Dodaj nowy produkt</button>
-            <div className={styles.add}>{add.invalidName || add.invalidCategory ?  'Sprawdź, czy wypełniłeś wszystkie pola!' : null}   
+            <div className={styles.add}>{add.invalidName || add.invalidCategory ?  'Sprawdź, czy wypełniłeś wszystkie pola!' : null}
+                                        {add.img ? <img className={styles.im} alt='Brak obrazka' src={logo} /> :null}   
             </div>
            </div>
            
