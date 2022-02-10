@@ -37,14 +37,14 @@ function AddProducts(props) {
         
         <div className={styles.Wrapper}>
              <label className={styles.label}>Nazwa produktu <input name='name'
-                                          className={add.invalidName ? styles.invalid : styles.valid}
+                                          className={add.invalidName ? styles.invalid : null}
                                         //   style={{border: add.invalidName ? '3px solid red': null}}
                                           placeholder='Nazwa nowego produktu...' 
                                           autocomplete="off"  
                                           value={add.name} type="text" 
                                           onChange={handleChange}/></label>  
             <label className={styles.label} >Katagoria  <input name='category'
-                                     className={add.invalidCategory ? styles.invalid : styles.valid}
+                                     className={add.invalidCategory ? styles.invalid : null}
                                     //  style={{border: add.invalidCategory ? '3px solid red': null}} 
                                      placeholder='Nazwa kategorii...'
                                      autocomplete="off" 
