@@ -30,7 +30,7 @@ function AddProducts(props) {
                     kategoria: add.category.toLowerCase(),  
                     produktSpozywczy: add.product}
                     );
-                if(props.addProducts) setAdd({name: '', category: '', product: false, invalidName: false, img: true});
+                if(props.addProducts) setAdd({name: '', category: '', product: false, invalidName: false, invalidCategory:false, img: true});
             };
         };
     return (
