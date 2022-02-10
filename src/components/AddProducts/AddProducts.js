@@ -16,7 +16,7 @@ function AddProducts(props) {
     const handleChange = (e) => {
         setAdd( prevState => {
             if(e.target.type === 'checkbox') return {...prevState, [e.target.name]: e.target.checked};
-            else return {...prevState, [e.target.name]: e.target.value};
+            else return {...prevState, [e.target.name]: e.target.value.trim()};
             });
     };
     const handleClick = () => {
