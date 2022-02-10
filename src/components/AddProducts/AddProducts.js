@@ -30,7 +30,7 @@ function AddProducts(props) {
                     kategoria: add.category.toLowerCase(),  
                     produktSpozywczy: add.product}
                     );
-                if(props.addProducts) setAdd({name: '', category: '', product: false, invalidName: false, invalidCategory:false, img: true});
+                if(props.addProducts) setAdd({name: '', category: '',product: false, invalidName: false, invalidCategory:false, img: true});
             };
         };
     return (
@@ -51,7 +51,7 @@ function AddProducts(props) {
                                      value={add.category} 
                                      onChange={handleChange} type="text"/></label>   
                <input name='product' 
-                      value={add.product} 
+                      checked={add.product} 
                       onChange={handleChange} 
                       type="checkbox"/>Produkt spożywczy
             <button onClick={handleClick}>Dodaj nowy produkt</button>
