@@ -14,7 +14,7 @@ class ProductsFilters extends Component {
     if (e.target.type === 'checkbox')
       this.setState({ [name]: e.target.checked }, () => this.filterProducts()); //Zadanie 2 - bez () => this.filterProducts()
     else
-      this.setState({ [name]: e.target.value }, () => this.filterProducts());
+      this.setState({ [name]: e.target.value.trim() }, () => this.filterProducts());
   }
   handleReset = () => {
     this.setState({
