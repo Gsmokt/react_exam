@@ -61,3 +61,7 @@
 .er {
   transform: translateY(-5vh);
 }
+
+.invalid {
+  border: 3px solid red;
+}
