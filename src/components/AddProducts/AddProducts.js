@@ -2,8 +2,12 @@ import React from 'react';
 import { useState } from 'react/cjs/react.development';
 import styles from '../../common/styles/Headers.module.scss';
 import logo from '../../thumbs-up (1).png'
+import {useSelector, useDispatch} from 'react-redux';
+import {addProduct} from '../../redux/store';
 
-function AddProducts(props) {
+function AddProducts() {
+  const state = useSelector(state => state.products);
+  const dispatch = useDispatch();
  const [add, setAdd] = useState({
     name: '',
     category: '',
@@ -20,17 +24,13 @@ function AddProducts(props) {
             });
     };
     const handleClick = () => {
-        const products = props.allProducts.map(item => item.nazwa);
+        const products = state.map(item => item.nazwa);
         if(add.name === '') {setAdd({...add,invalidName:true, img: false}); return}
         if(add.category === '') {setAdd({...add, invalidCategory:true, img:false});return}
         if(products.includes(add.name.toLowerCase())) {setAdd({...add, img:false}); alert('Podany produkt już istnieje')}
         else {
-                props.addProducts(
-                   {nazwa: add.name.toLowerCase(),
-                    kategoria: add.category.toLowerCase(),  
-                    produktSpozywczy: add.product}
-                    );
-                if(props.addProducts) setAdd({name: '', category: '',product: false, invalidName: false, invalidCategory:false, img: true});
+                dispatch(addProduct({nazwa: add.name, kategoria: add.category, produktSpozywczy: add.product}));
+                setAdd({name: '', category: '',product: false, invalidName: false, invalidCategory:false, img: true});
             };
         };
     return (
@@ -40,14 +40,14 @@ function AddProducts(props) {
                                           className={add.invalidName ? styles.invalid : null}
                                         //   style={{border: add.invalidName ? '3px solid red': null}}
                                           placeholder='Nazwa nowego produktu...' 
-                                          autocomplete="off"  
+                                          autoComplete="off"  
                                           value={add.name} type="text" 
                                           onChange={handleChange}/></label>  
             <label className={styles.label} >Katagoria  <input name='category'
                                      className={add.invalidCategory ? styles.invalid : null}
                                     //  style={{border: add.invalidCategory ? '3px solid red': null}} 
                                      placeholder='Nazwa kategorii...'
-                                     autocomplete="off" 
+                                     autoComplete="off" 
                                      value={add.category} 
                                      onChange={handleChange} type="text"/></label>   
                <input name='product' 

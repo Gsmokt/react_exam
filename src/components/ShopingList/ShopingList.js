@@ -1,8 +1,11 @@
 import React from "react";
 import commonColumnsStyles from "../../common/styles/Columns.module.scss";
+import {useSelector, useDispatch} from 'react-redux';
+import {removeFromShoppingCart} from '../../redux/shoppingListStore';
 
-function ShopingList(props) {
-    const { shopList } = props;
+function ShopingList() {
+    const state = useSelector(state => state.shoppingList);
+    const dispatch = useDispatch();
     const setShopping = (event, i) => {
         event.preventDefault();
         if (event.target.style.textDecoration === "") {
@@ -15,12 +18,12 @@ function ShopingList(props) {
         <div className={commonColumnsStyles.App}>
             <header className={commonColumnsStyles.AppHeader}>
                 <p>Lista zakupów: </p>
-                {shopList.map((e, i) => <li
+                {state.map((e, i) => <li
                     className={commonColumnsStyles.list1}
                     key={i}
-                    onClick={() => props.setNewProductList([...shopList.filter((item, index) => index !== i)])}
-                    onContextMenu={(event) => setShopping(event, i)}>{e.nazwa}</li>)}
-            </header>                                     {/* Zadanie 1 - funkcja handleClick  zamiast setShopping na onContextMenu*/}
+                    onClick={() => dispatch(removeFromShoppingCart(i))}
+                    onContextMenu={(event) => setShopping(event)}>{e.nazwa}</li>)}
+            </header>                                    
         </div>
     );
 }
